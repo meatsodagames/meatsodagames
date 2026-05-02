@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    
+    <head>
+        
+        <meta charset="UTF-8" />
+        <title>David Tausen / Meatsoda</title>
+        <link rel="stylesheet" href="styles.css" />
+        
+    </head>
+    
+    
+    <!--TO DO LIST-->
+    <!--
+
+we are losers2 intro-inu (gif, minni stærð + betri gæði)
+
+checka hitalagnir animation
+
+bæjarbíó + animation
+
+2025 reel-ið + kannski fleiri video
+
+about me flipi eða eitthvað
+
+
+
+-->
+    
+    
+    
+    
+    <body>
+        <div class="header">
+            <a href="index.html"><img src="images/ui/header.gif"></a>
+            <div class="headerText"><p>illustrator / graphic designer</p></div>
+        </div>
+        
+        <div class="gridContainer">
+            <div class="gallery">
+                <div class="album" data-album="shark">
+                    <img src="images/content/snowshark_front.jpg" />
+                    <div class="overlay">Horsefeathers - Snow Shark</div>
+                </div>
+
+                <div class="album" data-album="acid">
+                    <img src="images/content/acidbath_back.jpg" />
+                    <div class="overlay">Horsefeathers - Acid Bath</div>
+                </div>
+
+                <div class="album" data-album="wal2">
+                    <img src="images/content/wearelosers2.gif" />
+                    <div class="overlay">We Are Losers 2</div>
+                </div>
+
+                <div class="album" data-album="lobster">
+                    <img src="images/content/lobster_thumbnail.jpg" />
+                    <div class="overlay">Lobster - Logos</div>
+                </div>
+                <div class="album" data-album="yes">
+                    <img src="images/content/yes_back.jpg" />
+                    <div class="overlay">Yes - Airmasters</div>
+                </div>
+                <div class="album" data-album="heavy">
+                    <img src="images/content/heavymeatal_sketch.jpg" />
+                    <div class="overlay">Heavy Meatal</div>
+                </div>
+                <div class="album" data-album="stickers">
+                    <img src="images/content/stickers2.jpg" />
+                    <div class="overlay">Stickers</div>
+                </div>
+                <div class="album" data-album="nasl">
+                    <img src="images/content/nasl_teikning.jpg" />
+                    <div class="overlay">Borg Brugghús - Nasl</div>
+                </div>
+                <div class="album" data-album="habe">
+                    <img src="images/content/habe_thumbnail.jpg" />
+                    <div class="overlay">Habe - Logo</div>
+                </div>
+                <div class="album" data-album="hitalagnir">
+                    <img src="images/content/hitalagnir_thumbnail.jpg" />
+                    <div class="overlay">Hitalagnir</div>
+                </div>
+
+</div>
+
+
+            <div class="modal" id="modal">
+                <span class="close">&times;</span>
+                <img id="modal-img">
+                
+
+                <div class="nav prev">&#10094;</div>
+                <div class="nav next">&#10095;</div>
+            </div></div>
+        <script>
+const albums = {
+    shark: [
+        "/images/content/snowshark_main.png",
+        "/images/content/snowshark_back.jpg",
+        "/images/content/snowshark_front.jpg",
+        "/images/content/snowshark_hat.png"
+    ],
+    acid: [
+        "/images/content/acidbath_main.jpeg",
+        "/images/content/acidbath_front.jpg",
+        "/images/content/acidbath_back.jpg"
+  ],
+    wal2: [
+        "/images/content/wearelosers2_cover.jpg",
+        "/images/content/wearelosers2.png",
+        "/images/content/wearelosers2.gif"
+
+    ],
+    lobster: [
+        "/images/content/lobster.png",
+        "/images/content/lobster_hashtag.png",
+        "/images/content/lobster_concepts.jpg"
+    ],
+    yes: [
+        "/images/content/yes_airmaster.jpg",
+        "/images/content/yes_extreme.jpg",
+        "/images/content/yes_back.jpg",
+        "/images/content/yes_fridge.png",
+        "/images/content/yes_typo.png"
+    ],
+    heavy: [
+        "/images/content/heavymeatal.png",
+        "/images/content/heavymeatal_risowhite.jpg",
+        "/images/content/heavymeatal_risored.jpg",
+        "/images/content/heavymeatal_sketch.jpg"
+    ],
+    stickers: [
+        "/images/content/stickers.jpg",
+        "/images/content/stickers2.jpg"
+    ],
+    nasl: [
+        "/images/content/nasl_teikning.jpg",
+        "/images/content/nasl.png"
+    ],
+    habe: [
+        "/images/content/habe_chain.jpg",
+        "/images/content/habe_sky.jpg",
+        "/images/content/habe_main.jpg"
+    ],
+    hitalagnir: [
+        "/images/content/hitalagnir_main.png",
+        "/images/content/hitalagnir_bill.png"
+    ],
+};
+
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modal-img");
+
+let currentAlbum = [];
+let index = 0;
+
+
+document.querySelectorAll(".album").forEach(el => {
+    el.addEventListener("click", () => {
+        currentAlbum = albums[el.dataset.album];
+        index = 0;
+        modal.classList.add("active");
+        update();
+    });
+});
+
+
+function update() {
+    modalImg.src = currentAlbum[index];
+
+}
+
+
+document.querySelector(".next").onclick = () => {
+    index = (index + 1) % currentAlbum.length;
+    update();
+};
+
+document.querySelector(".prev").onclick = () => {
+    index = (index - 1 + currentAlbum.length) % currentAlbum.length;
+    update();
+};
+
+document.querySelector(".close").onclick = () => {
+    modal.classList.remove("active");
+    index = 0;
+};
+
+modal.onclick = (e) => {
+    if (e.target === modal) modal.classList.remove("active");
+};
+</script>
+    </body>
+    
+</html>
