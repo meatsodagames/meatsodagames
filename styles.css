@@ -1,0 +1,368 @@
+:root {
+    --whiteColor: #f9f8f2; /* var(--whiteColor) */
+    --secondaryColor: #18101e; /* var(--secondaryColor) */
+    --hlColor: #459f74; /* var(--hlColor) */
+    --offBlackColor: #100f13; /* var(--bgColor) */
+    --navSel: coral;
+    --headerHeight: 55px;
+    --contactSheetTop: 55px;
+    --titleHeight: 80%;
+    --navPadding: 0;
+    --contactSheetLength: max-content;
+    --contactSheetPadding: 0 25px;
+    
+}
+
+@font-face {
+    font-family: "Futura";
+    src: url("fonts/FuturaCon-Boo.woff");
+    font-weight: lighter;
+    
+}
+@font-face {
+    font-family: "Futura";
+    src: url("fonts/Futura-Dem.woff");
+    font-weight: normal;
+    
+}
+@font-face {
+    font-family: "Futura";
+    src: url("fonts/Futura-Bol.woff");
+    font-weight: bold;
+}
+
+html {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    
+    font-family: "Futura", sans-serif;
+    font-weight: normal;
+    font-size: 1rem;
+    
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    
+    overflow-x: hidden;
+}
+html:-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-color: #1b1b1b;
+    height:100vh;
+    width: 100vw;
+    margin: 0;
+    
+    
+}
+
+@media (max-width: 760px){
+    html{font-size: 0.7rem;}
+    :root {
+        --headerHeight: 80px;
+        --contactSheetTop: 100px;
+        --titleHeight: 40%;
+        --navPadding: 5%;
+        --contactSheetLength: 100vw;
+        --contactSheetPadding: 0 0;
+    }
+}
+@media (width > 760px) {
+    #LandingContactSheet {
+        padding: 0 25px;
+    }
+}
+
+#backgroundContainer {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(to bottom, var(--offBlackColor), var(--secondaryColor));
+    
+    z-index: -1;
+}
+/* HEADER REVEAL MARKER */
+#topMarker {
+    height:1px;
+}
+#graphicsMarker {
+    position: absolute;
+    top: 150vh;
+    height:1px;
+
+}
+#logosMarker {
+    position: absolute;
+    top: 250vh;
+    height:1px;
+}
+#motionMarker {
+    position: absolute;
+    top: 350vh;
+    height:1px;
+}
+/* HEADER */
+#header {
+    
+    top: calc(-1 * var(--headerHeight));
+    z-index: 99;
+    
+    display: flex;
+    position: fixed;
+    height: var(--headerHeight);
+    width: 100%;
+    
+    align-items: center;
+    background-color: black;
+    
+    transition: top 0.5s ease;
+}
+#header.reveal {
+    top: 0;
+}
+/* TITLE - HEADER */
+.titleContainer {
+    display: flex;
+    position: relative;
+    
+    height: 100%;
+    width: auto;
+    padding-left: 25px;
+}
+.titleContainer a { display:flex;}
+.titleContainer img {
+    margin: auto;
+    height: var(--titleHeight);
+    object-fit: contain;
+}
+/* NAVIGATION - HEADER */
+.navBar {
+    
+    height: auto;
+    width: 100%;
+    margin: 0;
+    padding-right: 25px;
+    text-align: right;
+    font-family: "futura", sans-serif;
+    font-weight: normal;
+    font-size: 1.2rem;
+}
+.navBar a {
+    padding: 0 1.5%;
+    line-height: 2rem;
+    text-decoration: none;
+    color: var(--hlColor);
+}
+.navBar a:hover {
+    color: var(--whiteColor);
+}
+.navBar #contactNav { color: var(--whiteColor);}
+#contactNav:hover { color: coral;}
+
+#graphicsNav.highlight { color: coral;}
+#logosNav.highlight { color: coral;}
+#motionNav.highlight { color: coral;}
+#contactNav.highlight { color: coral;}
+/* Contact */
+#landingContactSheet {
+    
+    position: fixed;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: -100vw;
+    
+    height: 55px;
+    width: var(--contactSheetLength);
+    padding: var(--contactSheetPadding);
+    background-color: coral;
+    transition: right 0.8s ease;
+    
+    font-size: 1.2rem;
+    font-family: "futura", sans-serif;
+    font-weight: normal;
+    
+    z-index: 2;
+} 
+#landingContactSheet.reveal { right: 0;}
+#landingContactSheet a {
+    display: block;
+    
+    text-decoration: none;
+    color: black;
+}
+#landingContactSheet a:hover { color: var(--whiteColor);}
+
+/* nav bar contact sheet*/
+#contactSheet {    
+    position: fixed;
+    display: flex;
+    
+    
+    
+    top: -100px;
+    right: 0;
+    text-align: center;
+    justify-content: center;
+    
+    height: auto;
+    width: var(--contactSheetLength);
+    padding: var(--contactSheetPadding);
+    
+    background-color: coral;
+    transition: top 0.8s ease;
+    
+    font-family: "futura", sans-serif;
+    font-weight: normal;
+    font-size: 1.2rem;
+    
+    z-index: 2;
+} 
+#contactSheet.reveal { top: var(--headerHeight);}
+#contactSheet a {
+    display: block;
+    
+    text-decoration: none;
+    color: black;
+    
+
+} #contactSheet a:hover { color: var(--whiteColor);}
+
+
+/* MAIN CONTENT */
+
+.windowContainer {
+
+    height: 100%;
+    width: 100%;
+    
+    
+    
+    
+}
+/* SECTIONS */
+.section {
+    scroll-snap-align: start;
+    
+    height: 100vh;
+    width: 100%;
+}
+
+
+.sectionTitle {
+    padding-top: var(--headerHeight);
+    width: 100%;
+    padding-left: 25px;
+    font-size: 2rem;
+    background-image: url("images/blackLiquid.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    
+    font-family: "Futura", sans-serif;
+    font-weight: bold;
+}
+.sectionTitle p{
+    width: max-content;
+    
+    color: var(--hlColor);
+    
+}
+.sectionTitle p span { font-weight: normal; position: relative; font-size: 1.2rem; padding-left: 25px; color: var(--whiteColor); }
+/*#graphicHeader {
+    padding-top:calc(40vh + 55px);
+    transform: translateY(-40vh);}*/
+.sectionText {
+    padding-left: 25px;
+    height:auto;
+    width:max-content;
+    
+    color: var(--whiteColor);
+    position: relative;
+    
+    font-family: "Futura", sans-serif;
+    font-weight: normal;
+}
+
+/*section specifics*/
+#landing {
+    position: relative;
+}
+.mainBanner {
+    
+    top: min(20vh, 25vw);
+    display: flex; /*flex*/
+    position: relative;
+    width: 100%; /*75% mobile*/
+    height: auto;
+    
+    transition: top 0.6s ease;
+    
+}
+#titleBanner.hide {top: -75%;}
+#leftBanner {
+    padding: 0 0 0 5%;
+    width: 70%;
+}
+#leftBanner img {
+    display: block;
+    margin: 0;
+    
+    width: 100%;
+    height: auto;
+    
+    object-fit: contain;
+}
+ul { padding-left: 5vw;}
+#landingNav {
+    position: relative;
+    list-style-type: none;
+    margin:0;
+    
+    text-align: left;
+    width: 5%;
+    padding-top: 1.5%;
+}
+#landingNav a {
+    
+    font-size:min(4.5vw, 5vh);
+    
+    text-decoration: none;
+    
+    font-family: "futura", sans-serif;
+    font-weight: normal;
+    line-height: 1.5;
+    
+    color:  var(--hlColor);
+} 
+#landingNav a:hover {
+    color: coral;
+}
+#landingContactNav {
+    color: var(--whiteColor);
+}
+#landingContactNav.highlight {
+    color: coral;
+}
+
+.aboutText{
+    margin: -2rem 0 0 10% ;
+    display: inline-block;
+    position: relative;
+    
+    width: 90%;
+    height: auto;
+    
+    text-align: right;
+    
+    font-family: "Futura", sans-serif;
+    font-weight: normal;
+    font-size: 2rem;
+    
+    
+    color: var(--whiteColor);    
+}
+
