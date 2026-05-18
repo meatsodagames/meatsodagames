@@ -95,7 +95,7 @@ body {
 
 #backgroundContainer {
     position: fixed;
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     background-image: linear-gradient(to bottom, var(--offBlackColor), var(--secondaryColor));
     
