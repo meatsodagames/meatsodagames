@@ -74,6 +74,9 @@ body {
         grid-auto-rows: 1fr;
         height: 70%;
     }
+    .sectionTitle{
+        padding-top: calc(var(--headerHeight) - 10px);
+    }
 }
 @media (width >= 761px) {
     #LandingContactSheet {
@@ -84,6 +87,9 @@ body {
         grid-auto-flow: column;
         grid-auto-columns: 1fr;
         height: 80%;
+    }
+    .sectionTitle{
+        padding-top: var(--headerHeight);
     }
 }
 
@@ -266,7 +272,7 @@ body {
 
 
 .sectionTitle {
-    padding-top: var(--headerHeight);
+    
     width: 100vw;
     padding-left: 25px;
     font-size: 2rem;
