@@ -299,7 +299,7 @@ body {
 }
 .mainBanner {
     
-    top: min(20vh, 25vw);
+    top: min(30vh, 30vw);
     display: flex; /*flex*/
     position: relative;
     width: 100%; /*75% mobile*/
