@@ -215,7 +215,7 @@ const albums = {
         "videos/shakethedisease.mp4"
     ],
     glitchtrix: [
-        "videos/Glitchtrix.webm"
+        "videos/Glitchtrix.mp4"
     ],
     turbowizard: [
         "videos/turbowizard.mp4"
