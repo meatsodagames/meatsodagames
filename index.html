@@ -17,7 +17,7 @@
             const isIphone = /iPhone/.test(user);
             const isIpad = /iPad/.test(user) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1); /* til að testa iOS */
             
-            const isIOS = isIphone || isIpad; /* bæta við "|| isIpad " 4 da testin*/
+            const isIOS = isIphone; /* bæta við "|| isIpad " 4 da testin*/
             
             const isSafari = /Safari/.test(user) && !/Chrome|CriOS|FxiOS|EdgiOS/.test(user);
             
